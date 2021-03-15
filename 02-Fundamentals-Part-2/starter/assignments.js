@@ -76,4 +76,93 @@ console.log(ChinaPopulationPercentage);
 console.log(ItalyPopulationPercentage);
 
 
+//=================
+// ARROW FUNCTIONS
+//=================
+/*
+Recreate the last assignment, but this time create an arrow function called 'percentageOfWorld3'
+*/
+
+const percentageOfWorld3 = (country, population) => {
+    return `${country} has ${((population / 7900) * 100).toFixed(2)} percent of the world's population.`
+}
+
+let IndiaPopulationPercentage = percentageOfWorld3('India', 1326);
+let FrancePopulationPercentage = percentageOfWorld3('France', 57.06);
+let BrazilPopulationPercentage = percentageOfWorld3('Brazil', 211);
+console.log(IndiaPopulationPercentage);
+console.log(FrancePopulationPercentage);
+console.log(BrazilPopulationPercentage);
+
+
+//=================
+// FUNCTIONS CALLING OTHER FUNCTIONS
+//=================
+const describePopulation = (country, population) => {
+    const callFunc = percentageOfWorld1(country, population);
+    return `${country} has ${population} million people, so ${callFunc}`
+}
+
+let Peru = describePopulation('Peru', 32.82);
+let Iceland = describePopulation('Iceland', .36);
+let Japan = describePopulation('Japan', 126.3);
+console.log(Peru);
+console.log(Iceland);
+console.log(Japan);
+
+//=================
+// INTRODUCTION TO ARRAYS
+//=================
+const populations = [32.82, .36, 126.3, 1326];
+console.log(populations);
+
+if(populations.length === 4){
+    console.log(true);
+    
+} else {
+    console.log(false);
+    
+};
+const percentages = [percentageOfWorld1('Peru', populations[0]), percentageOfWorld1('Iceland', populations[1]), percentageOfWorld1('Japan', populations[2]), percentageOfWorld1('India', populations[3])];
+console.log(percentages);
+
+//=================
+// MEHTODS: Basic Array Operations
+//=================
+/*
+1. Create an array containing all the neighbouring countries of a country of your
+choice. Choose a country which has at least 2 or 3 neighbours. Store the array
+into a variable called 'neighbours'.
+
+2. At some point, a new country called 'Utopia' is created in the neighbourhood of
+your selected country. So add it to the end of the 'neighbours' array.
+
+3. Unfortunately, after some time, the new country is dissolved. So remove it from
+the end of the array.
+
+4. If the 'neighbours' array does not include the country ‘Germany’, log to the
+console: 'Probably not a central European country :D'
+
+5. Change the name of one of your neighbouring countries. To do that, find the
+index of the country in the 'neighbours' array, and then use that index to
+change the array at that index position. For example, you can search for
+'Sweden' in the array, and then replace it with 'Republic of Sweden'.
+*/
+
+const neighboursOfChina = ['Afghanistan', 'Bhutan', 'India', 'Kazakhstan', 'Kyrgystan', 'Laos', 'Myanmar', 'Mongolia', 'Nepal', 'North Korea', 'Pakistan', 'Russia', 'Tajikistan', 'Vietnam'];
+console.log(neighboursOfChina);
+neighboursOfChina.push('Utopia');
+console.log(neighboursOfChina);
+neighboursOfChina.pop();
+console.log(neighboursOfChina);
+
+const germanyIsPresent = neighboursOfChina.includes('Germany');
+console.log('Is Germany a neighbor of China?', germanyIsPresent);
+if(!germanyIsPresent) {
+    console.log('Probably not a central European country :D');
+}
+neighboursOfChina[9] = "Democratic People's Republic of Korea";
+console.log(neighboursOfChina);
+
+
 
